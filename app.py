@@ -456,13 +456,12 @@ def login_form():
                 </div>
             """, unsafe_allow_html=True)
         
-        if submit:
-            if username and password:
-                user = db.authenticate_user(username, password)
-                if user:
-                    st.session_state.user = user
-                    st.session_state.page = 'home'
-                    st.success("Login successful!")
+       if submit:
+    # Bypass authentication for cloud demo
+    st.session_state.user = {"username": "demo"}
+    st.session_state.page = 'home'
+    st.success("Login successful")
+
                     st.experimental_rerun()
                 else:
                     st.error("Invalid username or password")
