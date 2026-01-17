@@ -442,26 +442,20 @@ def load_remedies_data():
 def login_form():
     """Render login form"""
     with st.form("login_form"):
-        st.markdown('<div class="card-header">Sign in to your account</div>', unsafe_allow_html=True)
-        username = st.text_input("Username")
-        password = st.text_input("Password", type="password")
-        
-        col1, col2 = st.columns([1, 1])
-        with col1:
-            submit = st.form_submit_button("Login")
-        with col2:
-            st.markdown("""
-                <div style="display: flex; justify-content: flex-end; padding-top: 10px;">
-                    <a href="#" style="color: var(--primary); text-decoration: none;">Forgot password?</a>
-                </div>
-            """, unsafe_allow_html=True)
-        
-      if submit:
-    # Bypass authentication for cloud demo
-    st.session_state.user = {"username": "demo"}
-    st.session_state.page = "home"
-    st.success("Login successful")
-    st.experimental_rerun()
+    st.markdown('<div class="card-header">Sign in to your account</div>', unsafe_allow_html=True)
+
+    username = st.text_input("Username")
+    password = st.text_input("Password", type="password")
+
+    submit = st.form_submit_button("Login")
+
+    if submit:
+        # Bypass authentication for cloud demo
+        st.session_state.user = {"username": "demo"}
+        st.session_state.page = "home"
+        st.success("Login successful")
+        st.experimental_rerun()
+
 
 
 def signup_form():
