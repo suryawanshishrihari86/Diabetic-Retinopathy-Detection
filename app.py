@@ -441,8 +441,11 @@ def load_remedies_data():
 # ===== AUTHENTICATION PAGES =====
 def login_form():
     """Render login form"""
-    with st.form("login_form"):
-    st.markdown('<div class="card-header">Sign in to your account</div>', unsafe_allow_html=True)
+  with st.form("login_form"):
+    st.markdown(
+        '<div class="card-header">Sign in to your account</div>',
+        unsafe_allow_html=True
+    )
 
     username = st.text_input("Username")
     password = st.text_input("Password", type="password")
@@ -455,6 +458,7 @@ def login_form():
         st.session_state.page = "home"
         st.success("Login successful")
         st.experimental_rerun()
+
 
 
 
