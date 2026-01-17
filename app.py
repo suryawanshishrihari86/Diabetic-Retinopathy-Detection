@@ -456,17 +456,13 @@ def login_form():
                 </div>
             """, unsafe_allow_html=True)
         
-       if submit:
+      if submit:
     # Bypass authentication for cloud demo
     st.session_state.user = {"username": "demo"}
-    st.session_state.page = 'home'
+    st.session_state.page = "home"
     st.success("Login successful")
+    st.experimental_rerun()
 
-                    st.experimental_rerun()
-                else:
-                    st.error("Invalid username or password")
-            else:
-                st.warning("Please enter both username and password")
 
 def signup_form():
     """Render signup form"""
